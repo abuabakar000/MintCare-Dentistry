@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         },
         method: "POST",
         body: JSON.stringify({
-          model: "mistralai/Mistral-7B-Instruct-v0.3",
+          model: "Qwen/Qwen2.5-7B-Instruct",
           messages: [
             {
               role: "system",
