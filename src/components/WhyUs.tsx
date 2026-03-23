@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function WhyUs() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="pt-4 pb-20 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           
@@ -40,28 +40,28 @@ export default function WhyUs() {
           </div>
 
           {/* Right: Image Grid */}
-          <div className="lg:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 min-h-[500px] md:h-[550px]">
+          <div className="w-full lg:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 min-h-[400px] md:h-[600px]">
             {/* Column 1: Two small images */}
             <div className="flex flex-col gap-4 md:gap-6">
-              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
                 <Image src="/images/staff-1.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
-              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
                 <Image src="/images/staff-2.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
             </div>
 
             {/* Column 2: One tall central image - hidden on small mobile, shown on md+ */}
-            <div className="hidden md:block relative h-full overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03] pt-6 md:pt-10">
+            <div className="hidden md:block relative h-full overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
               <Image src="/images/staff-3.png" alt="MINT Team" fill sizes="20vw" className="object-cover" />
             </div>
 
             {/* Column 3: Two small images */}
             <div className="flex flex-col gap-4 md:gap-6">
-              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
                 <Image src="/images/staff-4.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
-              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
                 <Image src="/images/staff-5.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
             </div>

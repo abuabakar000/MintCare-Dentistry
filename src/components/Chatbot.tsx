@@ -63,23 +63,23 @@ export default function Chatbot() {
       )}
 
       {/* Chat Window */}
-      <div className={`fixed bottom-6 right-6 z-50 w-[300px] md:w-[330px] h-[450px] bg-white rounded-2xl shadow-3xl border border-gray-100 flex flex-col transition-all duration-500 overflow-hidden ${
+      <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 w-[calc(100%-2rem)] md:w-[380px] h-[550px] max-h-[85vh] bg-white rounded-[2rem] shadow-3xl border border-gray-100 flex flex-col transition-all duration-500 overflow-hidden ${
         isOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-10 opacity-0 scale-95 pointer-events-none"
       }`}>
         {/* Header */}
-        <div className="bg-mint p-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white font-serif font-bold italic text-sm">
+        <div className="bg-mint p-6 flex items-center justify-between shadow-lg relative z-10">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-serif font-bold italic text-lg border border-white/30">
               M
             </div>
             <div>
-            <h3 className="text-white font-serif font-bold leading-tight text-base">MINT Care Assistant</h3>
-            <p className="text-white/80 text-[10px] font-sans uppercase tracking-widest leading-none">Always Online</p>
+              <h3 className="text-white font-serif font-bold leading-tight text-lg">MINT Care Assistant</h3>
+              <p className="text-white/80 text-[10px] font-sans uppercase tracking-[0.2em] leading-none mt-1 font-bold">Always Online</p>
             </div>
           </div>
           <button 
             onClick={() => setIsOpen(false)}
-            className="text-white/80 hover:text-white transition-colors"
+            className="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center text-white hover:bg-black/20 transition-all"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -88,12 +88,12 @@ export default function Chatbot() {
         </div>
 
         {/* Messages */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50/50">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 bg-gray-50/30 backdrop-blur-sm">
           {messages.map((m, i) => (
             <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-              <div className={`max-w-[85%] p-3 rounded-2xl font-sans text-sm leading-relaxed shadow-sm ${
+              <div className={`max-w-[88%] p-4 rounded-2xl font-sans text-sm md:text-base leading-relaxed shadow-sm ${
                 m.role === "user" 
-                  ? "bg-mint text-white rounded-tr-none" 
+                  ? "bg-mint text-white rounded-tr-none shadow-mint/10" 
                   : "bg-white text-gray-800 rounded-tl-none border border-gray-100"
               }`}>
                 {m.content}
@@ -102,42 +102,45 @@ export default function Chatbot() {
           ))}
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-white text-gray-400 p-3 rounded-2xl rounded-tl-none border border-gray-100 flex gap-1">
-                <span className="animate-bounce">.</span>
-                <span className="animate-bounce delay-75">.</span>
-                <span className="animate-bounce delay-150">.</span>
+              <div className="bg-white text-gray-400 p-4 rounded-2xl rounded-tl-none border border-gray-100 flex gap-1.5 shadow-sm">
+                <div className="w-1.5 h-1.5 bg-mint/40 rounded-full animate-bounce"></div>
+                <div className="w-1.5 h-1.5 bg-mint/60 rounded-full animate-bounce delay-75"></div>
+                <div className="w-1.5 h-1.5 bg-mint/80 rounded-full animate-bounce delay-150"></div>
               </div>
             </div>
           )}
         </div>
 
-        {/* Input */}
-        <form onSubmit={handleSubmit} className="p-3 bg-white border-t border-gray-100">
-          <div className="flex gap-2">
+        {/* Input Area */}
+        <div className="p-4 bg-white border-t border-gray-100">
+          <form onSubmit={handleSubmit} className="flex gap-3">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value.slice(0, 800))}
               maxLength={800}
               placeholder="Type your message..."
-              className="flex-1 bg-gray-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-mint transition-all outline-none"
+              className="flex-1 bg-gray-50 border-gray-200 border rounded-2xl px-5 py-3 text-sm md:text-base text-gray-900 focus:ring-2 focus:ring-mint focus:border-transparent transition-all outline-none placeholder:text-gray-400"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="w-10 h-10 bg-mint text-white rounded-full flex items-center justify-center disabled:bg-gray-300 transition-colors"
+              className="w-12 h-12 bg-mint text-white rounded-2xl flex items-center justify-center disabled:bg-gray-200 transition-all hover:bg-mint-dark transform active:scale-95 shadow-lg hover:shadow-mint/20"
             >
-              <svg className="w-5 h-5 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </button>
+          </form>
+          <div className="flex justify-between items-center mt-3">
+            <p className="text-[9px] uppercase tracking-widest text-gray-400 font-bold">End-to-End Encrypted</p>
+            {input.length > 600 && (
+              <p className={`text-[10px] ${input.length >= 800 ? 'text-red-500' : 'text-gray-400'}`}>
+                {input.length}/800
+              </p>
+            )}
           </div>
-          {input.length > 600 && (
-            <p className={`text-[10px] mt-1 text-right ${input.length >= 800 ? 'text-red-500' : 'text-gray-400'}`}>
-              {input.length}/800
-            </p>
-          )}
-        </form>
+        </div>
       </div>
     </>
   );

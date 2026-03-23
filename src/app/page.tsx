@@ -4,7 +4,6 @@ import BookingBar from "@/components/BookingBar";
 import FounderSection from "@/components/FounderSection";
 import WhyUs from "@/components/WhyUs";
 import ServicesShowcase from "@/components/ServicesShowcase";
-import SmileTransformations from "@/components/SmileTransformations";
 import ExpandingGallery from "@/components/ExpandingGallery";
 import FAQSection from "@/components/FAQSection";
 import PatientEducation from "@/components/PatientEducation";
@@ -21,7 +20,6 @@ export default function Home() {
       <FounderSection />
       <WhyUs />
       <ServicesShowcase />
-      <SmileTransformations />
       <ExpandingGallery />
       <FAQSection />
       <PatientEducation />
