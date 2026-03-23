@@ -61,10 +61,10 @@ export default function SmileTransformations() {
           {/* Before Image (Bottom Layer) */}
           <div className="absolute inset-0">
             <Image 
-              src="/images/teeth-whitening.png" 
+              src="https://images.unsplash.com/photo-1593114183058-c3fd2da62d8e?auto=format&fit=crop&q=80&w=2000" 
               alt="Before MINT Care" 
               fill
-              className="object-cover filter sepia-[0.3] saturate-[0.8] brightness-[0.85]"
+              className="object-cover"
             />
             {/* "Before" Label */}
             <div className="absolute top-8 left-8 bg-black/40 backdrop-blur-md text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-white/20">
@@ -74,12 +74,12 @@ export default function SmileTransformations() {
 
           {/* After Image (Top Layer) */}
           <div 
-            className="absolute inset-0 overflow-hidden"
+            className="absolute inset-0 overflow-hidden border-r-2 border-white shadow-[10px_0_20px_-10px_rgba(0,0,0,0.5)]"
             style={{ width: `${sliderPosition}%` }}
           >
             <div className="absolute inset-0 w-[initial] h-full" style={{ width: containerRef.current?.offsetWidth }}>
               <Image 
-                src="/images/teeth-whitening.png" 
+                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=2000" 
                 alt="After MINT Care" 
                 fill
                 className="object-cover"

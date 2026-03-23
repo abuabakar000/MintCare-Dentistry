@@ -1,53 +1,39 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 
 export default function BookingBar() {
-  const [formData, setFormData] = useState({
-    name: "",
-    contact: "",
-    service: "General Dentistry",
-    date: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Booking Details:", formData);
-    alert("Thank you! Your booking request has been sent.");
-  };
-
   return (
-    <section className="py-16 bg-white">
+    <section className="py-12 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 space-y-2">
-          <h2 className="text-3xl md:text-4xl font-serif text-gray-900">
-            Book Your <span className="text-mint italic">MINT Care</span> Experience
-          </h2>
-          <p className="text-gray-500 font-sans tracking-widest uppercase text-xs">
-            Fast, easy, and premium dental care
-          </p>
-        </div>
-        <div className="bg-white rounded-3xl shadow-xl p-12 md:p-16 border border-gray-100 text-center space-y-8">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <h3 className="text-3xl font-serif text-gray-900 italic">Ready for your MINT Care transformation?</h3>
-            <p className="text-gray-500 font-sans tracking-wide">
-              Select your preferred service and schedule your visit in less than 60 seconds.
+        <div className="bg-light-gray rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 text-center space-y-8 md:space-y-12 shadow-sm border border-gray-500/10">
+          <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
+            <h2 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight">
+              Ready for your <br className="hidden md:block" /><span className="text-mint italic font-light">MINT Care</span> transformation?
+            </h2>
+            <p className="text-sm md:text-lg text-gray-500 font-sans tracking-wide max-w-xl mx-auto">
+              Select your preferred service and schedule your visit in less than 60 seconds. Fast, easy, and premium dental care.
             </p>
           </div>
-          <div className="flex justify-center">
+          
+          <div className="flex justify-center pt-4">
             <Link 
               href="/book"
-              className="bg-mint text-white px-16 py-6 rounded-full text-lg font-bold uppercase tracking-[0.2em] transition-all shadow-2xl hover:bg-mint-dark transform hover:-translate-y-1 active:scale-95"
+              className="group relative bg-mint text-white px-10 md:px-20 py-5 md:py-7 rounded-full text-base md:text-xl font-bold uppercase tracking-[0.2em] transition-all shadow-xl hover:shadow-mint/20 hover:bg-mint-dark transform hover:-translate-y-1 active:scale-95 overflow-hidden"
             >
-              Start Your Booking
+              <span className="relative z-10">Start Your Booking</span>
+              <div className="absolute inset-0 bg-white/10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
             </Link>
           </div>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold">
-            Fastest Growing Private Dental Company in the Country
-          </p>
+
+          <div className="space-y-4 pt-4">
+            <div className="w-12 h-[1px] bg-gray-200 mx-auto"></div>
+            <p className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-gray-400 font-bold">
+              The #17th Most Loved Workplace® in the Nation
+            </p>
+          </div>
         </div>
-    </div>
-  </section>
+      </div>
+    </section>
   );
 }

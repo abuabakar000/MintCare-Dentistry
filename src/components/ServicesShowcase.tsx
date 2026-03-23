@@ -59,7 +59,7 @@ export default function ServicesShowcase() {
                 </div>
               </div>
 
-              {/* Hover Border Border Accent */}
+              {/* Hover Border Accent */}
               <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 transition-all duration-500 rounded-2xl m-4"></div>
             </div>
           ))}
