@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import BookingBar from "@/components/BookingBar";
 import FounderSection from "@/components/FounderSection";
@@ -6,7 +7,7 @@ import WhyUs from "@/components/WhyUs";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import ExpandingGallery from "@/components/ExpandingGallery";
 import FAQSection from "@/components/FAQSection";
-import BlogSection from "@/components/BlogSection";
+import PatientEducation from "@/components/PatientEducation";
 import Certifications from "@/components/Certifications";
 
 export default function Home() {
@@ -21,15 +22,22 @@ export default function Home() {
       <ServicesShowcase />
       <ExpandingGallery />
       <FAQSection />
-      <BlogSection />
+      <PatientEducation />
       
       {/* Footer Placeholder for completeness */}
       <footer className="bg-white text-gray-600 py-20 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="text-3xl font-serif font-bold tracking-tight text-gray-900 mb-8">
-            MINT <span className="text-xs uppercase font-sans font-normal tracking-[0.3em] ml-2">Dentistry</span>
+          <div className="flex justify-center mb-8">
+            <div className="relative h-12 w-48">
+              <Image 
+                src="/images/logo.png" 
+                alt="MINT Care Dentistry" 
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
-          <p className="text-gray-400 font-sans tracking-wide">© 2026 MINT Dentistry. All rights reserved.</p>
+          <p className="text-gray-400 font-sans tracking-wide">© 2026 MINT Care Dentistry. All rights reserved.</p>
           <div className="flex justify-center gap-8 pt-8">
             <span className="text-xs uppercase tracking-[0.2em] text-gray-400">Privacy Policy</span>
             <span className="text-xs uppercase tracking-[0.2em] text-gray-500">Terms of Service</span>

@@ -14,8 +14,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "MINT Dentistry | Premium Dental Care",
-  description: "Get in MINT condition with the fastest-growing private dental company in the country.",
+  title: "MINT Care Dentistry | Premium Dental Care",
+  description: "Get in MINT Care condition with the fastest-growing private dental company in the country.",
+  icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({

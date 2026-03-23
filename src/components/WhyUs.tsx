@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function WhyUs() {
   return (
@@ -7,14 +8,10 @@ export default function WhyUs() {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           
           {/* Left: Content */}
-          <div className="lg:w-2/5 sticky top-32">
+          <div className="lg:w-1/2 sticky top-32">
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-              <div className="w-16 h-24 relative mb-4">
-                {/* Logo Mark */}
-                <span className="text-4xl text-mint font-serif">M</span>
-              </div>
               <h2 className="text-5xl md:text-6xl font-serif text-gray-900 leading-tight">
-                Why <span className="text-mint font-light italic">MINT</span>?
+                Why <span className="text-mint font-light italic">MINT Care</span>?
               </h2>
               
               <div className="max-w-lg space-y-6">
@@ -24,40 +21,48 @@ export default function WhyUs() {
                 <p className="text-lg text-gray-700 leading-relaxed font-sans">
                   Most people are not born with beautiful, healthy teeth. That’s why, 
                   for the last fifteen years, over one million people from all over the 
-                  country have trusted their teeth and their smiles to MINT dentistry. 
+                  country have trusted their teeth and their smiles to MINT Care dentistry. 
                   Our skilled dental surgeons, our extraordinary cutting-edge 
                   technology, and our intense customer-focused approach are why 
-                  MINT is the fastest-growing private (but not private equity owned) 
+                  MINT Care is the fastest-growing private (but not private equity owned) 
                   dental company in the country.
                 </p>
+                <div className="pt-4">
+                  <Link 
+                    href="/book"
+                    className="inline-block bg-mint text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-mint-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    Book Your Appointment
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right: 3-Column Image Grid (2-1-2 layout) */}
-          <div className="lg:w-3/5 grid grid-cols-3 gap-3 md:gap-4 h-[600px] md:h-[750px]">
+          {/* Right: Image Grid */}
+          <div className="lg:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 min-h-[500px] md:h-[550px]">
             {/* Column 1: Two small images */}
-            <div className="flex flex-col gap-3 md:gap-4">
-              <div className="relative h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-1.png" alt="MINT Team" fill sizes="(max-width: 1024px) 33vw, 20vw" className="object-cover" />
+            <div className="flex flex-col gap-4 md:gap-6">
+              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+                <Image src="/images/staff-1.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
-              <div className="relative h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-2.png" alt="MINT Team" fill sizes="(max-width: 1024px) 33vw, 20vw" className="object-cover" />
+              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+                <Image src="/images/staff-2.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
             </div>
 
-            {/* Column 2: One tall central image */}
-            <div className="relative h-full overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03] pt-6 md:pt-10">
-              <Image src="/images/staff-3.png" alt="MINT Team" fill sizes="(max-width: 1024px) 33vw, 20vw" className="object-cover" />
+            {/* Column 2: One tall central image - hidden on small mobile, shown on md+ */}
+            <div className="hidden md:block relative h-full overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03] pt-6 md:pt-10">
+              <Image src="/images/staff-3.png" alt="MINT Team" fill sizes="20vw" className="object-cover" />
             </div>
 
             {/* Column 3: Two small images */}
-            <div className="flex flex-col gap-3 md:gap-4">
-              <div className="relative h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-4.png" alt="MINT Team" fill sizes="(max-width: 1024px) 33vw, 20vw" className="object-cover" />
+            <div className="flex flex-col gap-4 md:gap-6">
+              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+                <Image src="/images/staff-4.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
-              <div className="relative h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-5.png" alt="MINT Team" fill sizes="(max-width: 1024px) 33vw, 20vw" className="object-cover" />
+              <div className="relative h-[150px] md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
+                <Image src="/images/staff-5.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
               </div>
             </div>
           </div>

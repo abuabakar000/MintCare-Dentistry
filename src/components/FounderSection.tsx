@@ -7,7 +7,7 @@ export default function FounderSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Left: Family Image */}
-          <div className="lg:w-1/2 relative h-[600px] w-full rounded-2xl overflow-hidden border border-gray-100 transition-all hover:scale-[1.02]">
+          <div className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full rounded-2xl overflow-hidden border border-gray-100 transition-all hover:scale-[1.02]">
             <Image
               src="/images/founder.png"
               alt="Dr. Field Harrison and Family"
@@ -23,11 +23,11 @@ export default function FounderSection() {
               At the heart of it all is our founder, Dr. Field Harrison — a dentist, 
               entrepreneur, author, and passionate advocate for people in pain. From 
               providing free food drives to people during COVID, to free dental care to 
-              injured veterans, to building MINT dentistry rooted in excellence and 
+              injured veterans, to building MINT Care dentistry rooted in excellence and 
               purpose, Dr. Harrison's mission is simple: to make world-class dental care 
               accessible to everyone. He and his wife, Sabrina also give back through 
-              MINT Cares, supporting employees and local causes alike. And under his 
-              leadership, MINT was recently recognized as the #17th Most Loved 
+              MINT Care Cares, supporting employees and local causes alike. And under his 
+              leadership, MINT Care was recently recognized as the #17th Most Loved 
               Workplace® in the nation by the Wall Street Journal®.
             </p>
 
@@ -49,7 +49,7 @@ export default function FounderSection() {
                   ))}
                 </div>
                 <Link href="#" className="text-sm font-bold text-mint hover:underline font-sans">
-                  See MINT Reviews
+                  See MINT Care Reviews
                 </Link>
               </div>
             </div>

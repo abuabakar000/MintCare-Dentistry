@@ -4,16 +4,16 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What makes MINT dentistry different?",
-    answer: "MINT dentistry combines world-class clinical expertise with a luxurious, patient-focused experience. From our boutique-style offices and massage chairs to our cutting-edge technology and hand-picked clinical teams, we've reimagined dental care as a premium service you'll actually look forward to.",
+    question: "What makes MINT Care dentistry different?",
+    answer: "MINT Care dentistry combines world-class clinical expertise with a luxurious, patient-focused experience. From our boutique-style offices and massage chairs to our cutting-edge technology and hand-picked clinical teams, we've reimagined dental care as a premium service you'll actually look forward to.",
   },
   {
     question: "Do you accept my dental insurance?",
     answer: "We accept most major PPO dental insurance plans. Our dedicated insurance coordinators work directly with your provider to maximize your benefits and ensure a transparent, stress-free billing process. We also offer flexible financing options for those without insurance.",
   },
   {
-    question: "How long do MINT whitening treatments last?",
-    answer: "Our professional MINT whitening treatments are designed for lasting impact. Depending on your lifestyle and habits, results can stay vibrant for 6 to 12 months. We also offer take-home maintenance kits to help you keep your 'MINT condition' smile bright.",
+    question: "How long do MINT Care whitening treatments last?",
+    answer: "Our professional MINT Care whitening treatments are designed for lasting impact. Depending on your lifestyle and habits, results can stay vibrant for 6 to 12 months. We also offer take-home maintenance kits to help you keep your 'MINT Care condition' smile bright.",
   },
   {
     question: "Is Invisalign® right for me?",

@@ -10,7 +10,7 @@ interface Message {
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Hello! I'm your MINT assistant. How can I help you get in 'MINT condition' today?" }
+    { role: "assistant", content: "Hello! I'm your MINT Care assistant. How can I help you get in 'MINT Care condition' today?" }
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -73,8 +73,8 @@ export default function Chatbot() {
               M
             </div>
             <div>
-              <h3 className="text-white font-serif font-bold leading-tight text-base">MINT Assistant</h3>
-              <p className="text-white/80 text-[10px] font-sans uppercase tracking-widest leading-none">Always Online</p>
+            <h3 className="text-white font-serif font-bold leading-tight text-base">MINT Care Assistant</h3>
+            <p className="text-white/80 text-[10px] font-sans uppercase tracking-widest leading-none">Always Online</p>
             </div>
           </div>
           <button 
