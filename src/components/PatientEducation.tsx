@@ -29,9 +29,9 @@ export default function PatientEducation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-20 space-y-6 max-w-3xl mx-auto">
+        <div className="text-center mb-16 md:mb-20 space-y-6 max-w-3xl mx-auto">
           <p className="text-xs font-bold text-mint uppercase tracking-[0.5em]">The Journal</p>
-          <h2 className="text-5xl md:text-7xl font-serif text-gray-900 leading-tight">
+          <h2 className="text-4xl md:text-7xl font-serif text-gray-900 leading-tight">
             Patient <span className="text-mint font-light italic">Education</span>.
           </h2>
           <div className="w-16 h-1 bg-mint mx-auto" />

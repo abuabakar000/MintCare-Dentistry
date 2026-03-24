@@ -51,7 +51,7 @@ export default function Footer() {
             </div>
             <Link 
               href="/book"
-              className="group relative bg-mint text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all shadow-xl hover:shadow-mint/20 hover:bg-mint-dark transform hover:-translate-y-1 active:scale-95 whitespace-nowrap"
+              className="group relative bg-mint text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] transition-all shadow-xl hover:shadow-mint/20 hover:bg-mint-dark transform hover:-translate-y-1 active:scale-95 whitespace-nowrap"
             >
               Book Appointment
             </Link>

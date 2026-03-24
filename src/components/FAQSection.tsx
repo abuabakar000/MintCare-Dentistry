@@ -29,9 +29,9 @@ export default function FAQSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-20 space-y-4 animate-reveal">
+        <div className="text-center mb-16 md:mb-20 space-y-4 animate-reveal">
            <p className="text-xs font-bold text-mint uppercase tracking-[0.4em]">Clarity</p>
-           <h2 className="text-5xl md:text-6xl font-serif text-gray-900 leading-tight">
+           <h2 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight">
               Frequently <span className="text-mint font-light italic">Asked</span>.
            </h2>
         </div>

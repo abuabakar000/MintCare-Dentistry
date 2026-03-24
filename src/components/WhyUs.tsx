@@ -17,7 +17,7 @@ export default function WhyUs() {
           <div className="lg:w-1/2 space-y-10 animate-reveal">
             <div className="space-y-4">
               <p className="text-xs font-bold text-mint uppercase tracking-[0.4em]">The MINT Care Standard</p>
-              <h2 className="text-6xl md:text-7xl font-serif text-gray-900 leading-tight">
+              <h2 className="text-4xl md:text-7xl font-serif text-gray-900 leading-tight">
                 Designed For <br />
                 <span className="text-mint font-light italic">Exceptional</span> People.
               </h2>
@@ -47,7 +47,7 @@ export default function WhyUs() {
               <div className="pt-6">
                 <Link 
                   href="/book"
-                  className="inline-flex items-center gap-4 bg-gray-900 text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-[0.3em] transition-all hover:bg-mint shadow-xl transform hover:-translate-y-1"
+                  className="inline-flex items-center gap-4 bg-gray-900 text-white px-8 py-4 md:px-10 md:py-5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] transition-all hover:bg-mint shadow-xl transform hover:-translate-y-1"
                 >
                   Book Your Experience
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

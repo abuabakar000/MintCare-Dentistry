@@ -52,10 +52,10 @@ export default function ServicesShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-16 md:mb-24 gap-8">
           <div className="max-w-2xl space-y-4">
             <p className="text-xs font-bold text-mint uppercase tracking-[0.4em]">Elite Services</p>
-            <h2 className="text-5xl md:text-7xl font-serif text-gray-900 leading-tight">
+            <h2 className="text-4xl md:text-7xl font-serif text-gray-900 leading-tight">
               Crafting <span className="text-mint font-light italic">Exceptional</span> Smiles.
             </h2>
           </div>

@@ -53,10 +53,10 @@ export default function ServicesDirectory() {
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-mint/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8 animate-reveal">
            <p className="text-xs font-bold text-mint uppercase tracking-[0.5em]">The Suite</p>
-           <h1 className="text-6xl md:text-8xl font-serif text-gray-900 leading-tight">
+           <h1 className="text-4xl md:text-8xl font-serif text-gray-900 leading-tight">
               Curated <span className="text-mint font-light italic">Excellence</span>.
            </h1>
-           <p className="text-lg md:text-xl text-gray-500 font-sans font-light max-w-2xl mx-auto leading-relaxed">
+           <p className="text-base md:text-xl text-gray-500 font-sans font-light max-w-2xl mx-auto leading-relaxed">
               Explore our full range of boutique dental services, each delivered with the precision of science and the touch of luxury.
            </p>
         </div>

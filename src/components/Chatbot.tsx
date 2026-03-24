@@ -52,14 +52,25 @@ export default function Chatbot() {
   return (
     <>
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-mint text-white rounded-full shadow-2xl flex items-center justify-center animate-mint-pulse transition-all duration-300 group"
-        >
-          <svg className="w-7 h-7 animate-chat-wiggle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-          </svg>
-        </button>
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+          {/* Notification Bubble */}
+          <div className="bg-white/95 backdrop-blur-md border border-mint/20 px-4 py-2 rounded-2xl shadow-xl animate-bounce mb-1 group-hover:scale-105 transition-transform">
+             <p className="text-[10px] font-bold text-gray-900 uppercase tracking-widest whitespace-nowrap">
+                Ask me anything
+             </p>
+             {/* Tiny Triangle Tail */}
+             <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white rotate-45 border-r border-b border-mint/10" />
+          </div>
+
+          <button
+            onClick={() => setIsOpen(true)}
+            className="w-14 h-14 bg-mint text-white rounded-full shadow-2xl flex items-center justify-center animate-mint-pulse transition-all duration-300 group"
+          >
+            <svg className="w-7 h-7 animate-chat-wiggle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+          </button>
+        </div>
       )}
 
       {/* Chat Window */}

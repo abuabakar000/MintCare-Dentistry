@@ -100,7 +100,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
         <div className="relative z-10 text-center space-y-4 px-4 animate-reveal">
            <p className="text-xs font-bold text-mint uppercase tracking-[0.5em] drop-shadow-lg">Boutique Specialty</p>
-           <h1 className="text-5xl md:text-8xl font-serif text-white leading-tight drop-shadow-2xl">
+           <h1 className="text-4xl md:text-8xl font-serif text-white leading-tight drop-shadow-2xl">
               {service.title}
            </h1>
            <div className="w-24 h-1 bg-mint mx-auto mt-8" />

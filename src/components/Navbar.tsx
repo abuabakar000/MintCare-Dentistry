@@ -17,10 +17,8 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Why Us", href: "#why-us" },
-    { name: "Founder", href: "#founder" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Services", href: "/services" },
+    { name: "888-612-MINT", href: "tel:8886126468" },
   ];
 
   return (
@@ -48,7 +46,7 @@ export default function Navbar() {
               <a 
                 key={link.name} 
                 href={link.href}
-                className="text-[11px] uppercase tracking-[0.3em] font-bold text-gray-900 hover:text-mint transition-colors relative group"
+                className={`text-[11px] uppercase tracking-[0.3em] font-bold transition-colors relative group ${link.name === "888-612-MINT" ? "text-mint text-sm" : "text-gray-900 hover:text-mint"}`}
               >
                 {link.name}
                 <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-mint transition-all duration-300 group-hover:w-full"></span>
@@ -86,7 +84,7 @@ export default function Navbar() {
               key={link.name} 
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-4xl font-serif font-bold italic text-gray-900 transition-all hover:text-mint transform hover:scale-110"
+              className={`text-2xl font-bold transition-all hover:text-mint transform hover:scale-110 ${link.name === "888-612-MINT" ? "text-mint border-b border-mint/20 pb-2" : "font-serif italic text-gray-900"}`}
             >
               {link.name}
             </a>
@@ -94,7 +92,7 @@ export default function Navbar() {
           <Link 
             href="/book"
             onClick={() => setIsOpen(false)}
-            className="bg-mint text-white px-12 py-6 rounded-full text-sm font-bold uppercase tracking-[0.3em] shadow-2xl animate-mint-pulse"
+            className="bg-mint text-white px-8 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] shadow-2xl animate-mint-pulse"
           >
             Book Appointment
           </Link>

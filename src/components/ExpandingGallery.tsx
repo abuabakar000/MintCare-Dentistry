@@ -18,10 +18,10 @@ export default function ExpandingGallery() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8 animate-reveal">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-12 md:mb-20 gap-8 animate-reveal">
            <div className="max-w-2xl space-y-4">
               <p className="text-xs font-bold text-mint uppercase tracking-[0.4em]">The Atmosphere</p>
-              <h2 className="text-5xl md:text-7xl font-serif text-gray-900 leading-tight italic">
+              <h2 className="text-4xl md:text-7xl font-serif text-gray-900 leading-tight italic">
                  Inside <span className="text-mint font-light">MINT Care</span>.
               </h2>
            </div>
