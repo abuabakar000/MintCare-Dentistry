@@ -1,95 +1,112 @@
 "use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Services", href: "#services" },
+    { name: "Why Us", href: "#why-us" },
+    { name: "Founder", href: "#founder" },
+    { name: "FAQ", href: "#faq" },
+  ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${
+      scrolled ? "py-4 glass-effect shadow-glass" : "py-8 bg-transparent"
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-12">
+          
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
-              <div className="relative h-12 w-48 transition-transform duration-300 hover:scale-105">
-                <Image 
-                  src="/images/logo.png" 
-                  alt="MINT Care Dentistry" 
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </Link>
-          </div>
+          <Link href="/" className="relative h-10 w-40 md:h-12 md:w-48 transition-transform hover:scale-105">
+            <Image 
+              src="/images/logo.png" 
+              alt="MINT Care Dentistry" 
+              fill
+              sizes="(max-width: 768px) 160px, 192px"
+              className="object-contain"
+              priority
+            />
+          </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-12">
-            <Link href="#services" className="text-sm font-medium text-gray-600 hover:text-mint transition-colors tracking-widest uppercase">Services</Link>
-            <Link href="tel:888-612-6468" className="text-sm font-bold text-gray-900 tracking-wide hover:text-mint transition-colors">888-612-MINT</Link>
+          <div className="hidden md:flex items-center space-x-10">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                className="text-[11px] uppercase tracking-[0.3em] font-bold text-gray-900 hover:text-mint transition-colors relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-mint transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
             <Link 
               href="/book"
-              className="bg-mint hover:bg-mint-dark text-white px-10 py-3 rounded-full text-sm font-bold transition-all transform hover:scale-105 active:scale-95 uppercase tracking-wider shadow-lg hover:shadow-mint/20"
+              className="bg-mint text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all shadow-xl hover:bg-mint-dark transform hover:-translate-y-1 active:scale-95"
             >
               Book Now
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden flex items-center">
-            <button 
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-900 p-2 focus:outline-none transition-transform active:scale-90"
-              aria-label="Toggle Menu"
-            >
-              {isOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8h16M4 16h16" />
-                </svg>
-              )}
-            </button>
-          </div>
+          {/* Mobile Toggle */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-gray-900 focus:outline-none p-2"
+          >
+            <div className="w-8 h-5 relative flex flex-col justify-between">
+              <span className={`w-full h-[2px] bg-current transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`w-3/4 h-[2px] bg-current transition-all duration-300 ml-auto ${isOpen ? "opacity-0" : ""}`} />
+              <span className={`w-full h-[2px] bg-current transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </div>
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`md:hidden absolute top-24 left-0 right-0 bg-white border-b border-gray-100 shadow-2xl transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
-        <div className="px-6 py-12 space-y-10 text-center">
-          <Link 
-            href="#services" 
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif text-gray-900 tracking-wide hover:text-mint transition-colors"
-          >
-            Our Services
-          </Link>
-          <div className="space-y-2">
-            <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-gray-400">Direct Line</p>
-            <Link 
-              href="tel:888-612-6468"
-              className="block text-xl font-serif text-gray-900 hover:text-mint transition-colors"
-            >
-              888-612-MINT
-            </Link>
-          </div>
-          <div className="pt-6">
-            <Link 
-              href="/book"
+      <div className={`fixed inset-0 bg-white/98 z-40 transition-all duration-500 md:hidden ${
+        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-10"
+      }`}>
+        <div className="flex flex-col items-center justify-center h-full space-y-12">
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href}
               onClick={() => setIsOpen(false)}
-              className="inline-block bg-mint text-white px-16 py-5 rounded-full text-sm font-bold uppercase tracking-widest shadow-xl active:scale-95 transition-all"
+              className="text-4xl font-serif font-bold italic text-gray-900 transition-all hover:text-mint transform hover:scale-110"
             >
-              Book Now
-            </Link>
-          </div>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold pt-10">
-            MINT CARE DENTISTRY
-          </p>
+              {link.name}
+            </a>
+          ))}
+          <Link 
+            href="/book"
+            onClick={() => setIsOpen(false)}
+            className="bg-mint text-white px-12 py-6 rounded-full text-sm font-bold uppercase tracking-[0.3em] shadow-2xl animate-mint-pulse"
+          >
+            Book Appointment
+          </Link>
+          
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="absolute top-8 right-8 text-gray-400 hover:text-gray-900 transition-all"
+          >
+             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
       </div>
     </nav>

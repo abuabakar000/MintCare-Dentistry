@@ -2,27 +2,55 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827; /* Deep Charcoal */
+  --mint: #A4C639;
+  --mint-dark: #8DB600;
+  --snow: #FAFBFC;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-mint: #A4C639;
-  --color-mint-dark: #8DB600;
-  --color-light-gray: #fcfcfc;
-  --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
+  --color-mint: var(--mint);
+  --color-mint-dark: var(--mint-dark);
+  --color-snow: var(--snow);
+  --color-deep: #1A2A2A;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Outfit", "Inter", sans-serif;
+
+  --shadow-elite: 0 20px 50px rgba(0, 0, 0, 0.05);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
 body {
-  background: #ffffff;
-  color: #171717;
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Elite Glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Reveal Animations */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-reveal {
+  animation: reveal-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes mint-pulse {

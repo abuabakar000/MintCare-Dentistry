@@ -3,67 +3,81 @@ import Link from "next/link";
 
 export default function WhyUs() {
   return (
-    <section className="pt-4 pb-20 md:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
+    <section id="why-us" className="py-24 bg-white overflow-hidden relative">
+      
+      {/* Decorative Brand Mark */}
+      <div className="absolute top-20 -left-20 text-[20rem] font-serif italic text-mint/5 select-none pointer-events-none">
+        M
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
           
           {/* Left: Content */}
-          <div className="lg:w-1/2 sticky top-32">
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-              <h2 className="text-5xl md:text-6xl font-serif text-gray-900 leading-tight">
-                Why <span className="text-mint font-light italic">MINT Care</span>?
+          <div className="lg:w-1/2 space-y-10 animate-reveal">
+            <div className="space-y-4">
+              <p className="text-xs font-bold text-mint uppercase tracking-[0.4em]">The MINT Care Standard</p>
+              <h2 className="text-6xl md:text-7xl font-serif text-gray-900 leading-tight">
+                Designed For <br />
+                <span className="text-mint font-light italic">Exceptional</span> People.
               </h2>
+            </div>
+            
+            <div className="space-y-8">
+              <p className="text-xl text-gray-600 leading-relaxed font-sans font-light">
+                Most people are not born with beautiful, healthy teeth. That’s why, 
+                for fifteen years, over one million people have trusted MINT Care. 
+              </p>
+              <p className="text-lg text-gray-500 leading-relaxed font-sans italic border-l-4 border-mint/20 pl-8">
+                "Our mission is simple: to make world-class dental care 
+                accessible to everyone who demands the very best."
+              </p>
               
-              <div className="max-w-lg space-y-6">
-                <p className="text-sm font-bold text-gray-900 uppercase tracking-widest">
-                  Here’s a fact of life:
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed font-sans">
-                  Most people are not born with beautiful, healthy teeth. That’s why, 
-                  for the last fifteen years, over one million people from all over the 
-                  country have trusted their teeth and their smiles to MINT Care dentistry. 
-                  Our skilled dental surgeons, our extraordinary cutting-edge 
-                  technology, and our intense customer-focused approach are why 
-                  MINT Care is the fastest-growing private (but not private equity owned) 
-                  dental company in the country.
-                </p>
-                <div className="pt-4">
-                  <Link 
-                    href="/book"
-                    className="inline-block bg-mint text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-mint-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                  >
-                    Book Your Appointment
-                  </Link>
+              <div className="grid grid-cols-2 gap-8 pt-4">
+                <div className="space-y-2">
+                  <h4 className="text-2xl font-serif text-gray-900 italic">1M+</h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Smiling Patients</p>
                 </div>
+                <div className="space-y-2">
+                  <h4 className="text-2xl font-serif text-gray-900 italic">Top 1%</h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Industry Ranking</p>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <Link 
+                  href="/book"
+                  className="inline-flex items-center gap-4 bg-gray-900 text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-[0.3em] transition-all hover:bg-mint shadow-xl transform hover:-translate-y-1"
+                >
+                  Book Your Experience
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Right: Image Grid */}
-          <div className="w-full lg:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 min-h-[400px] md:h-[600px]">
-            {/* Column 1: Two small images */}
-            <div className="flex flex-col gap-4 md:gap-6">
-              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-1.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-              </div>
-              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-2.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-              </div>
+          {/* Right: Asymmetric Image Grid */}
+          <div className="lg:w-1/2 w-full grid grid-cols-12 gap-4 h-[600px] md:h-[700px]">
+            {/* Big Main Image */}
+            <div className="col-span-8 h-full relative rounded-[3rem] overflow-hidden shadow-elite animate-reveal">
+              <Image 
+                src="/images/staff-3.png" 
+                alt="Elite Dental Team" 
+                fill 
+                sizes="(max-width: 1024px) 70vw, 35vw" 
+                className="object-cover transition-transform duration-[8s] hover:scale-110" 
+              />
             </div>
-
-            {/* Column 2: One tall central image - hidden on small mobile, shown on md+ */}
-            <div className="hidden md:block relative h-full overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-              <Image src="/images/staff-3.png" alt="MINT Team" fill sizes="20vw" className="object-cover" />
-            </div>
-
-            {/* Column 3: Two small images */}
-            <div className="flex flex-col gap-4 md:gap-6">
-              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-4.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-              </div>
-              <div className="relative h-48 md:h-1/2 overflow-hidden rounded-2xl shadow-sm transition-all duration-700 hover:scale-[1.03]">
-                <Image src="/images/staff-5.png" alt="MINT Team" fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-              </div>
+            {/* Secondary Column */}
+            <div className="col-span-4 flex flex-col gap-4 h-full">
+               <div className="h-1/2 relative rounded-[2rem] overflow-hidden shadow-elite animate-reveal [animation-delay:200ms]">
+                <Image src="/images/staff-1.png" alt="MINT Clinic" fill sizes="15vw" className="object-cover" />
+               </div>
+               <div className="h-1/2 relative rounded-[2rem] overflow-hidden shadow-elite animate-reveal [animation-delay:400ms]">
+                <Image src="/images/staff-5.png" alt="Precision Care" fill sizes="15vw" className="object-cover" />
+               </div>
             </div>
           </div>
 

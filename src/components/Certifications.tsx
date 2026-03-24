@@ -1,42 +1,35 @@
 import Image from "next/image";
 
 export default function Certifications() {
+  const certs = [
+    { name: "Best of Dallas", image: "/images/cert-best-dallas.png" },
+    { name: "Most Loved Workplace", image: "/images/cert-loved-workplace.png" },
+    { name: "Top Rated Dentist", image: "/images/cert-best-dallas.png" }, // Reusing for demo
+  ];
+
   return (
-    <section className="py-12 bg-white">
+    <section className="bg-white py-12 border-y border-gray-50 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
-          {/* Best of Dallas 1 */}
-          <div className="relative w-32 h-32 md:w-40 md:h-40 transition-transform duration-500 hover:scale-105">
-            <Image
-              src="/images/cert-best-dallas.png"
-              alt="Best of Dallas 2025"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 128px, 160px"
-            />
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 duration-700">
+          
+          <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-[0.5em] mb-4 md:mb-0">
+             Accredited Excellence
+          </p>
+
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+            {certs.map((cert, index) => (
+              <div key={index} className="relative h-12 w-32 md:h-16 md:w-40 transition-all hover:scale-110">
+                <Image
+                  src={cert.image}
+                  alt={cert.name}
+                  fill
+                  sizes="200px"
+                  className="object-contain"
+                />
+              </div>
+            ))}
           </div>
 
-          {/* Top 100 Workplaces */}
-          <div className="relative w-32 h-32 md:w-48 md:h-48 transition-transform duration-500 hover:scale-105">
-            <Image
-              src="/images/cert-loved-workplace.png"
-              alt="America's Top 100 Most Loved Workplaces 2025"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 128px, 192px"
-            />
-          </div>
-
-          {/* Best of Dallas 2 (Replicated) */}
-          <div className="relative w-32 h-32 md:w-40 md:h-40 transition-transform duration-500 hover:scale-105">
-            <Image
-              src="/images/cert-best-dallas.png"
-              alt="Best of Dallas 2025"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 128px, 160px"
-            />
-          </div>
         </div>
       </div>
     </section>

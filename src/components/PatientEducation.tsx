@@ -1,114 +1,97 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const educationalTips = [
+const articles = [
   {
-    id: 1,
-    title: "Brushing Technique",
-    content: "Brush for 2 full minutes, twice a day, using a soft-bristled brush to protect your enamel.",
+    category: "Oral Health",
+    title: "The Art of the MINT Care Routine",
+    date: "March 2026",
+    image: "/images/blog-main.png"
   },
   {
-    id: 2,
-    title: "The Power of Flossing",
-    content: "Daily flossing removes up to 40% of plaque from between-teeth areas brushes cannot reach.",
+    category: "Lifestyle",
+    title: "Why Boutique Dentistry is the New Standard",
+    date: "Feb 2026",
+    image: "/images/blog-secondary-1.png"
   },
   {
-    id: 3,
-    title: "Hydration Matters",
-    content: "Water rinses away food particles and maintains a healthy pH balance in your mouth.",
-  },
-  {
-    id: 4,
-    title: "Toothbrush Renewal",
-    content: "Replace your toothbrush every 3 months to ensure effective cleaning and hygiene.",
-  },
+    category: "Technology",
+    title: "Digital Precision: The Future of Your Smile",
+    date: "Jan 2026",
+    image: "/images/blog-secondary-2.png"
+  }
 ];
 
 export default function PatientEducation() {
   return (
-    <section className="py-24 bg-white overflow-hidden border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-tight">
-            Patient <span className="text-mint italic font-light">Education</span>
+    <section className="py-24 bg-snow relative overflow-hidden">
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-20 space-y-6 max-w-3xl mx-auto">
+          <p className="text-xs font-bold text-mint uppercase tracking-[0.5em]">The Journal</p>
+          <h2 className="text-5xl md:text-7xl font-serif text-gray-900 leading-tight">
+            Patient <span className="text-mint font-light italic">Education</span>.
           </h2>
-          <div className="w-20 h-1 bg-mint mx-auto" />
-          <p className="text-sm font-sans tracking-[0.3em] text-gray-500 uppercase">
-            Your daily guide to a MINT Care smile
-          </p>
+          <div className="w-16 h-1 bg-mint mx-auto" />
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          
-          {/* Left Column: Large Image */}
-          <div className="lg:w-1/2 relative h-[300px] md:h-[500px] w-full rounded-2xl overflow-hidden group shadow-sm transition-all duration-700 hover:scale-[1.01]">
-            <Image
-              src="/images/blog-main.png"
-              alt="Patient Education"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-          </div>
-
-          {/* Middle Column: Two Stacked Images */}
-          <div className="lg:w-1/4 flex flex-col md:flex-row lg:flex-col gap-6 w-full md:h-[250px] lg:h-[500px]">
-            <div className="relative h-[200px] md:h-full lg:h-1/2 w-full rounded-2xl overflow-hidden group shadow-sm transition-all duration-700 hover:scale-[1.01]">
-              <Image
-                src="/images/blog-secondary-1.png"
-                alt="Healthy Lifestyle"
-                fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="relative h-[200px] md:h-full lg:h-1/2 w-full rounded-2xl overflow-hidden group shadow-sm transition-all duration-700 hover:scale-[1.01]">
-              <Image
-                src="/images/blog-secondary-2.png"
-                alt="Professional Care"
-                fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-          </div>
-
-          {/* Right Column: Education List */}
-          <div className="lg:w-1/4 space-y-8">
-            <div className="space-y-2 mb-8">
-              <p className="text-xs font-bold text-gray-900 uppercase tracking-widest">
-                Daily Care Essentials:
-              </p>
-            </div>
-
-            <div className="space-y-6 divide-y divide-gray-100">
-              {educationalTips.map((tip) => (
-                <div
-                  key={tip.id}
-                  className="pt-6 first:pt-0"
-                >
-                  <h3 className="text-sm font-bold text-mint uppercase tracking-wider mb-1">
-                    {tip.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {tip.content}
-                  </p>
+        {/* Featured Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {articles.map((article, index) => (
+            <Link 
+              key={article.title} 
+              href="#" 
+              className="group flex flex-col space-y-8 animate-reveal"
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
+              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-elite border border-white transition-all duration-700 group-hover:shadow-mint/10 group-hover:-translate-y-2">
+                <Image 
+                  src={article.image} 
+                  alt={article.title} 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 30vw" 
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110" 
+                />
+                {/* Glass Category Badge */}
+                <div className="absolute top-6 left-6 px-6 py-2 rounded-full glass-effect text-[10px] uppercase font-bold text-gray-900 tracking-widest shadow-sm">
+                  {article.category}
                 </div>
-              ))}
-            </div>
+              </div>
 
-            <div className="pt-8 border-t border-gray-100">
-              <Link 
-                href="/book"
-                className="inline-block w-full text-center bg-mint text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-mint-dark transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-              >
-                Book Now
-              </Link>
-            </div>
-          </div>
-
+              <div className="space-y-4 px-2">
+                <div className="flex items-center gap-4 text-[10px] uppercase font-bold text-gray-400 tracking-[0.2em]">
+                   <span>{article.date}</span>
+                   <span className="w-4 h-[1px] bg-gray-200" />
+                   <span className="text-mint">Read Journal</span>
+                </div>
+                <h3 className="text-3xl font-serif text-gray-900 group-hover:text-mint transition-colors leading-snug">
+                  {article.title}
+                </h3>
+              </div>
+            </Link>
+          ))}
         </div>
+
+        {/* Brand Footer CTA */}
+        <div className="mt-24 pt-16 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+           <div className="space-y-2">
+              <h4 className="text-2xl font-serif text-gray-900 italic">Stay in MINT Condition.</h4>
+              <p className="text-gray-500 font-sans font-light text-sm">Join our newsletter for concierge health tips and elite smile advice.</p>
+           </div>
+           <div className="flex w-full md:w-auto gap-4">
+              <input 
+                type="email" 
+                placeholder="Your email address" 
+                className="flex-1 md:w-80 bg-white border border-gray-100 rounded-full px-8 py-4 text-sm focus:ring-2 focus:ring-mint transition-all outline-none"
+              />
+              <button className="bg-mint text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-mint-dark transition-all">
+                Join
+              </button>
+           </div>
+        </div>
+
       </div>
     </section>
   );
