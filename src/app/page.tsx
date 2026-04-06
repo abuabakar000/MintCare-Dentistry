@@ -4,9 +4,9 @@ import BookingBar from "@/components/BookingBar";
 import FounderSection from "@/components/FounderSection";
 import WhyUs from "@/components/WhyUs";
 import ServicesShowcase from "@/components/ServicesShowcase";
-import ExpandingGallery from "@/components/ExpandingGallery";
+import ExperienceGrid from "@/components/ExperienceGrid";
 import FAQSection from "@/components/FAQSection";
-import PatientEducation from "@/components/PatientEducation";
+import TestimonialEditorial from "@/components/TestimonialEditorial";
 import Certifications from "@/components/Certifications";
 import Footer from "@/components/Footer";
 
@@ -20,9 +20,9 @@ export default function Home() {
       <FounderSection />
       <WhyUs />
       <ServicesShowcase />
-      <ExpandingGallery />
+      <ExperienceGrid />
       <FAQSection />
-      <PatientEducation />
+      <TestimonialEditorial />
       <Footer />
     </main>
   );

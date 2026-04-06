@@ -33,6 +33,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${outfit.variable} h-full antialiased`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}

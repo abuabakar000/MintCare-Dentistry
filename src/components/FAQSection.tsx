@@ -25,40 +25,50 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-white relative">
+    <section id="faq" className="py-24 bg-background relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-16 md:mb-20 space-y-4 animate-reveal">
-           <p className="text-xs font-bold text-mint uppercase tracking-[0.4em]">Clarity</p>
-           <h2 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight">
-              Frequently <span className="text-mint font-light italic">Asked</span>.
+        <div className="text-center mb-16 md:mb-20 space-y-5 animate-reveal">
+           <div className="inline-flex items-center gap-4 justify-center">
+             <div className="w-12 h-[1px] bg-gold" />
+             <p className="text-[10px] font-bold text-gold uppercase tracking-[0.45em]">Clarity</p>
+             <div className="w-12 h-[1px] bg-gold" />
+           </div>
+           <h2 className="text-4xl md:text-7xl font-serif text-foreground leading-[1.1] tracking-tight">
+              Frequently <br /> <span className="text-gold font-light italic">Asked</span>.
            </h2>
         </div>
 
         {/* Accordions */}
-        <div className="space-y-6">
+        <div className="space-y-0">
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className="border-b border-gray-100 animate-reveal"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="border-b border-gray-100/80 animate-reveal"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-8 flex items-center justify-between text-left group transition-all"
+                className="w-full py-7 flex items-center justify-between text-left group transition-all"
               >
-                <span className="text-xl md:text-2xl font-serif text-gray-900 group-hover:text-mint transition-colors italic">
+                <span className="text-xl md:text-2xl font-serif text-foreground group-hover:text-gold transition-colors duration-500 pr-8 italic">
                   {faq.question}
                 </span>
-                <div className={`w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center transition-all ${openIndex === index ? 'bg-mint border-mint text-white rotate-180' : 'text-gray-400 group-hover:border-mint group-hover:text-mint'}`}>
-                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 shrink-0 ${
+                  openIndex === index 
+                    ? 'bg-mint text-white rotate-180 shadow-soft' 
+                    : 'border border-gray-100 text-gray-300 group-hover:border-gold group-hover:text-gold'
+                }`}>
+                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                    </svg>
                 </div>
               </button>
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-[300px] opacity-100 pb-8' : 'max-h-0 opacity-0'}`}>
-                <p className="text-lg text-gray-500 font-sans font-light leading-relaxed pr-12">
+              <div className={`overflow-hidden transition-all duration-700 ease-out ${
+                openIndex === index ? 'max-h-[600px] opacity-100 pb-10' : 'max-h-0 opacity-0'
+              }`}>
+                <p className="text-base text-gray-400 font-sans font-light leading-[1.9] pr-12">
                   {faq.answer}
                 </p>
               </div>
@@ -67,12 +77,12 @@ export default function FAQSection() {
         </div>
 
         {/* Support CTA */}
-        <div className="mt-20 p-10 bg-snow rounded-3xl border border-gray-50 text-center space-y-4 animate-reveal">
-           <p className="text-sm font-sans text-gray-500 italic">Have a more specific question?</p>
-           <div className="flex justify-center gap-8 text-xs font-bold text-gray-900 uppercase tracking-widest">
-              <span className="hover:text-mint pointer-events-none opacity-50">Live Chat Available</span>
-              <span className="w-1.5 h-1.5 bg-mint rounded-full mt-1.5" />
-              <span className="hover:text-mint cursor-pointer transition-colors">888-612-MINT</span>
+        <div className="mt-20 p-10 bg-snow rounded-2xl border border-gold/10 text-center space-y-6 animate-reveal">
+           <p className="text-sm font-sans text-gray-400 italic">Have a more specific question?</p>
+           <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-[10px] font-bold text-gray-400 uppercase tracking-[0.25em]">
+              <span className="opacity-40">Live Concierge Available</span>
+              <span className="hidden md:block w-1.5 h-1.5 bg-gold/30 rounded-full" />
+              <a href="tel:8886126468" className="text-foreground hover:text-gold cursor-pointer transition-colors duration-300 px-6 py-2 border border-gray-100 rounded-xl">888-612-MINT</a>
            </div>
         </div>
 

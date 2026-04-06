@@ -42,7 +42,7 @@ export default function Chatbot() {
 
       const data = await response.json();
       setMessages(prev => [...prev, { role: "assistant", content: data.content }]);
-    } catch (error) {
+    } catch {
       setMessages(prev => [...prev, { role: "assistant", content: "I'm sorry, I'm having a little trouble connecting right now. Please try again or call us directly!" }]);
     } finally {
       setIsLoading(false);
@@ -52,60 +52,61 @@ export default function Chatbot() {
   return (
     <>
       {!isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5">
           {/* Notification Bubble */}
-          <div className="bg-white/95 backdrop-blur-md border border-mint/20 px-4 py-2 rounded-2xl shadow-xl animate-bounce mb-1 group-hover:scale-105 transition-transform">
-             <p className="text-[10px] font-bold text-gray-900 uppercase tracking-widest whitespace-nowrap">
+          <div className="bg-white/95 backdrop-blur-md border border-gray-100 px-4 py-2 rounded-2xl shadow-card animate-bounce relative">
+             <p className="text-[9px] font-semibold text-foreground uppercase tracking-[0.15em] whitespace-nowrap">
                 Ask me anything
              </p>
-             {/* Tiny Triangle Tail */}
-             <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white rotate-45 border-r border-b border-mint/10" />
+             <div className="absolute -bottom-1 right-6 w-2.5 h-2.5 bg-white rotate-45 border-r border-b border-gray-100" />
           </div>
 
           <button
             onClick={() => setIsOpen(true)}
-            className="w-14 h-14 bg-mint text-white rounded-full shadow-2xl flex items-center justify-center animate-mint-pulse transition-all duration-300 group"
+            className="w-14 h-14 bg-gold text-white rounded-2xl shadow-elite flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95 group overflow-hidden"
           >
-            <svg className="w-7 h-7 animate-chat-wiggle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            <div className="absolute inset-0 bg-gradient-to-r from-gold to-[#D4B982] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <svg className="w-6 h-6 relative z-10 transition-transform duration-500 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
             </svg>
           </button>
         </div>
       )}
 
       {/* Chat Window */}
-      <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 w-[calc(100%-2rem)] md:w-[380px] h-[550px] max-h-[85vh] bg-white rounded-[2rem] shadow-3xl border border-gray-100 flex flex-col transition-all duration-500 overflow-hidden ${
-        isOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-10 opacity-0 scale-95 pointer-events-none"
+      <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 w-[calc(100%-2rem)] md:w-[370px] h-[520px] max-h-[85vh] bg-white rounded-[1.5rem] shadow-xl border border-gray-100 flex flex-col transition-all duration-500 ease-out overflow-hidden ${
+        isOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95 pointer-events-none"
       }`}>
         {/* Header */}
-        <div className="bg-mint p-6 flex items-center justify-between shadow-lg relative z-10">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-serif font-bold italic text-lg border border-white/30">
+        <div className="bg-gold p-6 flex items-center justify-between relative z-10 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-gold to-[#D4B982] opacity-50" />
+          <div className="flex items-center gap-4 relative z-10">
+            <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-serif font-bold italic text-lg border border-white/30">
               M
             </div>
             <div>
-              <h3 className="text-white font-serif font-bold leading-tight text-lg">MINT Care Assistant</h3>
-              <p className="text-white/80 text-[10px] font-sans uppercase tracking-[0.2em] leading-none mt-1 font-bold">Always Online</p>
+              <h3 className="text-white font-serif font-bold leading-none text-base italic">MINT Care Assistant</h3>
+              <p className="text-white/80 text-[9px] font-sans uppercase tracking-[0.2em] leading-none mt-1.5 font-bold">The Concierge</p>
             </div>
           </div>
           <button 
             onClick={() => setIsOpen(false)}
-            className="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center text-white hover:bg-black/20 transition-all"
+            className="w-8 h-8 rounded-xl bg-black/10 flex items-center justify-center text-white hover:bg-black/20 transition-all relative z-10"
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
         {/* Messages */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 bg-gray-50/30 backdrop-blur-sm">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-4 bg-snow/50">
           {messages.map((m, i) => (
             <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-              <div className={`max-w-[88%] p-4 rounded-2xl font-sans text-sm md:text-base leading-relaxed shadow-sm ${
+              <div className={`max-w-[85%] p-3.5 rounded-2xl font-sans text-sm leading-relaxed ${
                 m.role === "user" 
-                  ? "bg-mint text-white rounded-tr-none shadow-mint/10" 
-                  : "bg-white text-gray-800 rounded-tl-none border border-gray-100"
+                  ? "bg-mint text-white rounded-br-md shadow-soft" 
+                  : "bg-white text-gray-700 rounded-bl-md border border-gray-100 shadow-soft"
               }`}>
                 {m.content}
               </div>
@@ -113,40 +114,40 @@ export default function Chatbot() {
           ))}
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-white text-gray-400 p-4 rounded-2xl rounded-tl-none border border-gray-100 flex gap-1.5 shadow-sm">
+              <div className="bg-white text-gray-400 p-3.5 rounded-2xl rounded-bl-md border border-gray-100 flex gap-1 shadow-soft">
                 <div className="w-1.5 h-1.5 bg-mint/40 rounded-full animate-bounce"></div>
-                <div className="w-1.5 h-1.5 bg-mint/60 rounded-full animate-bounce delay-75"></div>
-                <div className="w-1.5 h-1.5 bg-mint/80 rounded-full animate-bounce delay-150"></div>
+                <div className="w-1.5 h-1.5 bg-mint/60 rounded-full animate-bounce [animation-delay:75ms]"></div>
+                <div className="w-1.5 h-1.5 bg-mint/80 rounded-full animate-bounce [animation-delay:150ms]"></div>
               </div>
             </div>
           )}
         </div>
 
         {/* Input Area */}
-        <div className="p-4 bg-white border-t border-gray-100">
-          <form onSubmit={handleSubmit} className="flex gap-3">
+        <div className="p-3.5 bg-white border-t border-gray-50">
+          <form onSubmit={handleSubmit} className="flex gap-2.5">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value.slice(0, 800))}
               maxLength={800}
-              placeholder="Type your message..."
-              className="flex-1 bg-gray-50 border-gray-200 border rounded-2xl px-5 py-3 text-sm md:text-base text-gray-900 focus:ring-2 focus:ring-mint focus:border-transparent transition-all outline-none placeholder:text-gray-400"
+              placeholder="Inquire about MINT Care..."
+              className="flex-1 bg-snow border border-gray-100 rounded-2xl px-5 py-3.5 text-xs text-foreground focus:ring-1 focus:ring-gold/30 transition-all outline-none placeholder:text-gray-300 shadow-soft"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="w-12 h-12 bg-mint text-white rounded-2xl flex items-center justify-center disabled:bg-gray-200 transition-all hover:bg-mint-dark transform active:scale-95 shadow-lg hover:shadow-mint/20"
+              className="w-12 h-12 bg-mint text-white rounded-2xl flex items-center justify-center disabled:bg-gray-100 transition-all duration-500 hover:bg-mint-dark active:scale-95 shadow-soft hover:shadow-elite"
             >
-              <svg className="w-6 h-6 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </form>
-          <div className="flex justify-between items-center mt-3">
-            <p className="text-[9px] uppercase tracking-widest text-gray-400 font-bold">End-to-End Encrypted</p>
+          <div className="flex justify-between items-center mt-2.5">
+            <p className="text-[8px] uppercase tracking-[0.15em] text-gray-300 font-semibold">End-to-End Encrypted</p>
             {input.length > 600 && (
-              <p className={`text-[10px] ${input.length >= 800 ? 'text-red-500' : 'text-gray-400'}`}>
+              <p className={`text-[9px] ${input.length >= 800 ? 'text-red-500' : 'text-gray-300'}`}>
                 {input.length}/800
               </p>
             )}
